@@ -1,0 +1,20 @@
+{
+  "name": "social-media-api",
+  "version": "1.0.0",
+  "description": "API for a social network web application with Express.js for routing, a MongoDB database, and the Mongoose ODM.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravisSwift/social-media-api.git"
+  },
+  "author": "Travis Swift",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TravisSwift/social-media-api/issues"
+  },
+  "homepage": "https://github.com/TravisSwift/social-media-api#readme"
+}
