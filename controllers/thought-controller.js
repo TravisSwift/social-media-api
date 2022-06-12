@@ -1,8 +1,8 @@
-const { User } = require('../models');
+const { Thoughts } = require('../models');
 
 const userController = {
    
-    getAllUsers(req, res) {
+    getAllThoughts(req, res) {
       User.find({})
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -12,15 +12,15 @@ const userController = {
     },
   
     // get one user by id
-    getUserById({ params }, res) {
+    getThoughtsById({ params }, res) {
       User.findOne({ _id: params.id })
-        .then(dbUserData => {
+        .then(dbThoughtsData => {
           // If no user is found, send 404
-          if (!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id!' });
+          if (!dbThoughtsData) {
+            res.status(404).json({ message: 'No Thoughts found with this id!' });
             return;
           }
-          res.json(dbUserData);
+          res.json(dbThoughtData);
         })
         .catch(err => {
           console.log(err);
@@ -29,4 +29,4 @@ const userController = {
     },
   }
 
-module.exports = userController;
+module.exports = thoughtController;
