@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const pizzaRoutes = require('./users-routes');
+const userRoutes = require('./api/user-routes');
 
 router.use('/user', userRoutes);
 

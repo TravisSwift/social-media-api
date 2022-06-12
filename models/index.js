@@ -1,3 +1,3 @@
-const Pizza = require('./Thought');
+const Thought = require('./Thought');
 
 module.exports = { Thought };
