@@ -10,16 +10,13 @@
 // DELETE to remove user by its _id
 
 const router = require('express').Router();
-const { addThoughs, removeThoughts } = require('../../controllers/user-controller');
+const { getAllUsers, getUserById, removeUserById, createUserById} = require('../../controllers/user-controller');
 
 // GET to get all users
-router.route('/:userId').post(addUser);
+router.route('/').get(getAllUsers).post(createUserById) ;
+
 
 // Removea single user by its _id
-router.route('/:userId/:userId').delete(removeUser);
-
-const usertRoutes = require('./user-routes');
-
-router.use('/user', userRoutes);
+router.route('/:userId').delete(removeUserById).get(getUserById);
 
 module.exports = router;
