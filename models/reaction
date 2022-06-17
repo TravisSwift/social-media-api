@@ -1,0 +1,43 @@
+const { Schema, model } = require('mongoose');
+
+const ReactionSchema = new Schema(
+  {
+
+      
+    var Schema_Category = new Schema {
+    reactionId: = Schema.ObjectId;
+    title: String,
+    sortIndex: String
+    },
+ 
+
+    reactionBody: {
+      type: string,
+      get: (date) => timeSince(date),
+    },
+
+    {
+        username: {
+          type: String,
+          unique: true,
+          trim: true,
+          required: "Username is Required",
+        },
+
+    createdAt: {
+        type: Date,
+        get: (date) => timeSince(date),
+},
+
+  };
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
+  }
+);
+
+ReactionSchema.virtual("thought").get(function () {
+  return this.friends.length;
+});

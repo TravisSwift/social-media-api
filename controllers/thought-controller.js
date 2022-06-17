@@ -4,19 +4,19 @@ const userController = {
    
     getAllThoughts(req, res) {
       User.find({})
-        .then(dbUserData => res.json(dbUserData))
+        .then(dbUserData => res.json(dbThoughtData))
         .catch(err => {
           console.log(err);
           res.status(400).json(err);
         });
     },
   
-    // get one user by id
+    // get one thought by id
     getThoughtsById({ params }, res) {
-      User.findOne({ _id: params.id })
-        .then(dbThoughtsData => {
-          // If no user is found, send 404
-          if (!dbThoughtsData) {
+      User.findOne({ _id: params.thoughtId })
+        .then(dbThoughtData => {
+          // If no though is found, send 404
+          if (!dbThoughtData) {
             res.status(404).json({ message: 'No Thoughts found with this id!' });
             return;
           }
@@ -27,6 +27,32 @@ const userController = {
           res.status(400).json(err);
         });
     },
+    removeThoughtById({ params }, res) {
+      User.findByIdAndRemove(params.thoughtId)
+        .then(dbThoughtData => {
+          // If no thought is found, send 404
+          if (!dbThoughtData) {
+            res.status(404).json({ message: 'Thought has been deleted!' });
+            return;
+          }
+          res.json(dbThoughtData);
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(400).json(err);
+        });
+    },
+            // Post one thought by id
+            createThoughtById({ body }, res) {
+              User.create(body)
+                .then(dbThoughtData => {
+                  res.json(dbThoughtData);
+                })
+                .catch(err => {
+                  console.log(err);
+                  res.status(400).json(err);
+                });
+            },
   }
 
 module.exports = thoughtController;
