@@ -1,10 +1,10 @@
-const { Thoughts } = require('../models');
+const { Thought } = require('../models/');
 
-const userController = {
+const thoughtController = {
    
     getAllThoughts(req, res) {
-      User.find({})
-        .then(dbUserData => res.json(dbThoughtData))
+      Thought.find({})
+        .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
           console.log(err);
           res.status(400).json(err);
@@ -12,8 +12,8 @@ const userController = {
     },
   
     // get one thought by id
-    getThoughtsById({ params }, res) {
-      User.findOne({ _id: params.thoughtId })
+    getThoughtById({ params }, res) {
+     Thought.findOne({ _id: params.thoughtId })
         .then(dbThoughtData => {
           // If no though is found, send 404
           if (!dbThoughtData) {
@@ -28,7 +28,7 @@ const userController = {
         });
     },
     removeThoughtById({ params }, res) {
-      User.findByIdAndRemove(params.thoughtId)
+      Thought.findByIdAndRemove(params.thoughtId)
         .then(dbThoughtData => {
           // If no thought is found, send 404
           if (!dbThoughtData) {
@@ -44,7 +44,7 @@ const userController = {
     },
             // Post one thought by id
             createThoughtById({ body }, res) {
-              User.create(body)
+              Thought.create(body)
                 .then(dbThoughtData => {
                   res.json(dbThoughtData);
                 })
