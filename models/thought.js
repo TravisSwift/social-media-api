@@ -19,13 +19,6 @@ const ThoughtSchema = new Schema(
         get: (date) => timeSince(date),
 },
 
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Thought",
-        required: "Text is required",
-      },
-    ],
 },
 
     {

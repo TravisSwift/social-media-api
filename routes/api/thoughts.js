@@ -1,19 +1,17 @@
 const router = require('express').Router();
-const { addThoughts, removeThought, getAllThoughts } = require('../../controllers/thought-controller');
-
- 
-// Removea single thought by its _id
-// router.route('/:thoughtId/:thoughtId').delete(removeThought);
+const { removeThoughtById, getAllThoughts, createThoughtById, getThoughtById, updateThoughtById } = require('../../controllers/thought-controller');
 
 // GET to get all thoughts
 router.route('/').get(getAllThoughts)
+
 // .post(createThoughtById) ;
+router.route('/').post(createThoughtById)
 
+// .delete(removeThoughtById) ;
+router.route('/:thoughtId').delete(removeThoughtById).get(getThoughtById)
 
-// POST to create a new thought (don't forget to push the created thought's _id to the associated user's thoughts array field)
-// const thoughtRoutes = require('./thought-routes');
+// .put(updateThoughtById) ;
+router.route('/:thoughtId').put(updateThoughtById).get(getThoughtById)
 
-// router.use('/thoughts', thoughtRoutes);
-// router.use('/user', usersRoutes);
 
 module.exports = router;
