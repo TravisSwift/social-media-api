@@ -3,7 +3,9 @@ API for a social network web application with Express.js for routing, a MongoDB 
 
 
 
-# Link:   A walkthrough video that demonstrates the functionality of the social media API
+# Link:  https://bootcampspot.instructuremedia.com/lti/launch?custom_arc_display_download=true&custom_arc_launch_type=embed&custom_arc_media_id=eff64043-3905-4ae9-9b7b-4d69687e9f0d-2672
+
+A walkthrough video that demonstrates the functionality of the social media API
 
 ## The walkthrough video must show all of the technical acceptance criteria being met.
 
